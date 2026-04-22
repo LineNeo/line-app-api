@@ -1,6 +1,6 @@
 # LINE 移动端协议商业化解决方案
 
-语言：中文 | [English](./LINE_PRIVATE_PROTOCOL_OVERVIEW_EN.md)
+语言：中文 | [English](./README_US.md)
 
 ## Chrome 插件版 LINE 下架前，提前准备可持续的替代方案
 
