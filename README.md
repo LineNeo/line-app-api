@@ -1,110 +1,134 @@
-# LINE 移动端子设备协议方案 / LINE Mobile Sub-Device Protocol Solution
+# LINE 移动端协议商业化解决方案
 
-Chrome 插件版 LINE 计划在 `2026 年上半年` 下架，仍依赖网页版在线能力的业务，建议尽早准备切换方案。  
-The LINE Chrome extension version is scheduled to be discontinued in `H1 2026`. If your business still depends on the web extension staying online, it is better to prepare a migration plan early.
+语言：中文 | [English](./LINE_PRIVATE_PROTOCOL_OVERVIEW_EN.md)
 
-这是一套基于 `LINE 移动端子设备` 的协议方案，可与主设备同时在线，适合作为 Chrome 插件版下架后的替代接入方案。  
-This is a protocol solution based on `LINE mobile sub-devices`, capable of staying online together with the primary device, making it a practical replacement after the Chrome extension version is discontinued.
+## Chrome 插件版 LINE 下架前，提前准备可持续的替代方案
 
-也可以理解为一套面向私有化部署场景的 `line api` / `line protocol` 方案，覆盖 `line ios`、`line ipad`、`line android` 等相关接入方向。  
-It can also be understood as a private-deployment-oriented `line api` / `line protocol` solution covering `line ios`, `line ipad`, `line android`, and related integration scenarios.
+Chrome 插件版 LINE 计划在 `2026 年上半年` 下架。对于仍依赖网页版、插件版或浏览器自动化来维持在线客服、私域运营、账号托管、消息同步的团队来说，现在就需要准备一套更稳定、更低资源、更适合长期维护的替代方案。
 
-## 相关关键词 / Keywords
+我们提供的是一套基于 LINE 移动端协议的商业化接入方案，覆盖账号注册、主设备迁移、多设备在线、消息收发、联系人管理、群聊管理、消息同步与回调等完整业务链路。
 
-- `LINE api` / LINE 接口方案
-- `LINE protocol` / LINE 协议方案
-- `LINE ios` / LINE iOS 接入
-- `LINE ipad` / LINE iPad 接入
-- `LINE android` / LINE Android 接入
-- `LINE 移动端子设备协议` / LINE mobile sub-device protocol
-- `LINE Chrome 插件替代方案` / LINE Chrome extension replacement
-- `LINE 私有化部署协议` / LINE private deployment protocol
-- `LINE 多账号托管方案` / LINE multi-account hosting solution
-- `LINE 消息同步协议` / LINE message sync protocol
+这不是单一登录工具，也不是简单的网页自动化替代品。它是一套面向私有化部署、批量账号托管和业务系统集成的 LINE API / LINE Protocol 解决方案。
 
-## 方案优势 / Advantages
+## 核心卖点
 
-- 资源消耗极低，适合托管大量账号 / Very low resource usage, suitable for hosting large numbers of accounts
-- 基于纯协议算法实现，理解更深入，结构更清晰，便于持续维护与更新 / Built on pure protocol-level algorithm implementation, with deeper understanding, clearer structure, and easier long-term maintenance and updates
-- 支持按业务需求定制功能 / Custom features can be developed for specific business needs
-- 支持包月租用、私有化部署与源码交付 / Available as monthly rental, private deployment, or source code delivery
+- 支持主设备，不只是子设备：覆盖 iOS 主设备、Android 主设备、iPad 子设备、Android 子设备等多种接入形态。
+- 注册能力是核心功能：支持通过手机号完成账号注册和初始化，注册后可直接进入托管、同步和消息业务流程。
+- 支持账号迁移：可承接已有账号迁移场景，帮助客户从旧设备或旧方案平滑切换到新接入体系。
+- 支持多账号托管：资源消耗低，适合批量账号在线、集中管理和长期运行。
+- 支持消息业务闭环：覆盖消息发送、消息同步、回调通知、联系人、群聊、资料管理等常见运营能力。
+- 支持私有化部署：适合对账号数据、消息数据、回调链路和部署环境有更高控制要求的团队。
+- 支持定制开发：可根据具体业务系统、账号规模、部署方式和运营流程扩展能力。
 
-## 功能列表 / Features
+## 重点能力
 
-### 登录与设备管理 / Login & Device Management
+### 账号注册
 
-- 创建设备、查询设备详情 / Create devices and query device details
-- 绑定回调地址、配置代理 / Bind callback URLs and configure proxies
-- 子设备扫码登录、登录状态查询 / QR-based sub-device login and login status queries
-- 在线状态维护 / Online session maintenance
+注册接口是这套方案的核心能力之一。客户不需要只依赖已有账号导入或扫码登录，可以通过注册流程完成新账号初始化，并进入后续托管流程。
 
-### 消息能力 / Messaging
+适合这些场景：
 
-- 文本、图片、视频、音频、文件、贴图、名片发送 / Send text, image, video, audio, file, sticker, and contact card messages
-- 消息撤回 / Unsend messages
-- 已读同步、聊天移除状态同步 / Read sync and chat removed state sync
+- 新业务需要批量准备 LINE 账号
+- 客户希望从账号创建阶段就接入统一系统
+- 需要注册、登录、托管、同步、发送消息的一体化流程
+- 希望减少人工设备操作，把账号生命周期交给系统管理
 
-### 消息同步与回调 / Sync & Webhooks
+### 主设备接入与账号迁移
 
-- 消息盒子获取、会话列表分页 / Message box retrieval and paginated conversation listing
-- 增量同步、历史消息获取 / Incremental sync and historical message retrieval
-- 媒体下载 / Media download
-- 新消息、已读、撤回、聊天变更、登录状态回调 / Webhook callbacks for new messages, reads, revokes, chat changes, and login status
+当前方案明确支持主设备接入，而不是只支持子设备。对于需要账号完整生命周期管理、已有账号迁移和更贴近移动端业务场景的客户，主设备能力非常关键。
 
-### 联系人模块 / Contacts
+可覆盖：
 
-- 好友 ID、联系人资料、目标资料、好友详情获取 / Retrieve friend IDs, contact profiles, target profiles, and detailed friend info
-- 通过 MID 添加好友、删除好友 / Add friends by MID and delete friends
-- 拉黑 / 取消拉黑、收藏状态、隐藏状态管理 / Block and unblock users, manage favorite status, and manage hidden status
-- 好友备注名修改 / Update friend aliases
-- 拉黑列表、推荐用户、好友请求、最近好友请求获取 / Retrieve block lists, recommended users, friend requests, and recent friend requests
-- LINE 联系地址 / 二维码 ticket 获取与生成 / Get and generate LINE contact tickets / QR tickets
-- 通过 searchId 或 ticket 查找联系人 / Find contacts by searchId or ticket
-- 个人资料更新、用户主页资料获取 / Update profile info and fetch home profile data
+- iOS 主设备接入
+- Android 主设备接入
+- 主设备账号迁移
+- 旧账号迁入新设备体系
+- 主设备与子设备并行在线的多设备方案
 
-### 群聊与会话模块 / Chats & Sessions
+### 多设备在线
 
-- 全部聊天列表、聊天详情批量获取 / Retrieve all chat IDs and batch chat details
-- 创建群聊、更新聊天信息 / Create chats and update chat info
-- 邀请成员入群、移除群成员、主动退群 / Invite members, remove members, and leave chats
-- 聊天通知设置获取与更新 / Get and update chat notification settings
-- 聊天隐藏状态设置 / Set chat hidden status
-- 账号资料获取、会话配置获取、会话登出 / Get account profile, fetch session configurations, and logout sessions
+方案同时支持主设备和子设备接入，适合不同业务形态：
 
-### 贴图商店与扩展能力 / Sticker Store & Extended Capabilities
+- 主设备：适合注册、迁移、完整账号托管等场景
+- 子设备：适合与原主设备共存、降低切换成本的场景
+- 多账号托管：适合客服矩阵、私域运营、出海业务和批量账号系统
 
-- 贴图商店详情获取 / Get sticker store item details
-- 贴图商店最新版本获取 / Get latest sticker store versions
-- 已拥有贴图列表获取 / Get owned sticker lists
-- 频道信息与频道令牌相关能力 / Channel info and channel token related capabilities
-- E2EE 公钥、群组密钥相关能力 / E2EE public key and group key related capabilities
+### 消息与运营能力
 
-## 交付方式 / Delivery Options
+围绕日常运营场景，方案覆盖常用消息和账号能力：
 
-### 包月租用 / Monthly Rental
+- 文本、图片、视频、音频、文件、贴图、名片等消息发送
+- 新消息、已读、撤回、聊天变更、登录状态等事件回调
+- 历史消息、消息同步、媒体下载
+- 好友资料、好友关系、拉黑、收藏、备注名等联系人管理
+- 群聊创建、成员邀请、移除成员、退群、通知设置
+- 账号资料、头像、主页背景、联系人二维码等资料能力
+- 贴图商店、频道信息、端到端加密相关能力
 
-- `50 $ / 号 / 月` / `50 USD / account / month`
+## 适合客户
 
-### 私有化部署 / Private Deployment
+- 依赖 LINE Chrome 插件版或网页版能力的团队
+- 做出海客服、私域运营、社群运营、账号矩阵的团队
+- 需要批量托管 LINE 账号的业务方
+- 希望把 LINE 能力接入自有 CRM、客服系统、营销系统的团队
+- 需要私有化部署、源码交付或定制开发的技术团队
+- 希望从注册、迁移、登录、同步到消息收发都统一管理的客户
 
-- `5000 $` / `5000 USD`
-- 二进制交付 / Binary delivery
-- 每次更新 `+500 $` / `+500 USD per update`
+## 为什么选择移动端协议方案
 
-### 源码购买 / Source Code Purchase
+相比继续依赖浏览器、插件或自动化脚本，移动端协议方案更适合长期商业化运行：
 
-- `10000 $` / `10000 USD`
-- 架构清晰 / Clear architecture
-- 有技术团队可自行维护 / Teams with engineering capability can maintain it independently
+- 更低资源占用：无需为每个账号维护完整浏览器环境
+- 更适合规模化：方便批量账号在线和集中调度
+- 更清晰的维护边界：协议层能力更容易持续迭代
+- 更完整的账号生命周期：覆盖注册、迁移、登录、托管、同步和消息
+- 更灵活的部署方式：可租用、可私有化、可源码交付
 
-### 免费试用 / Free Trial
+## 相关关键词
 
-- 提供测试环境 / Test environment available
-- 服务器配置较低，稳定性一般 / Trial server has low specs and limited stability
-- 仅供功能验证，不建议正式业务使用 / For feature verification only, not recommended for production use
-- TG 联系获取试用地址 / Contact on Telegram for the trial address: [https://t.me/Gareth9527](https://t.me/Gareth9527)
+- LINE API
+- LINE Protocol
+- LINE 注册接口
+- LINE 账号注册协议
+- LINE 主设备协议
+- LINE 账号迁移协议
+- LINE 多设备协议
+- LINE iOS 接入
+- LINE Android 接入
+- LINE iPad 接入
+- LINE Chrome 插件替代方案
+- LINE 私有化部署
+- LINE 多账号托管
+- LINE 消息同步
+- LINE 客服系统接入
 
-## 一句话介绍 / One-Line Summary
+## 交付方式
 
-> 这是一套基于 LINE 移动端子设备的协议方案，可与主设备同时在线，资源占用低、可托管大量账号，适合在 Chrome 插件版于 2026 年上半年停止服务前，提前完成业务切换。  
-> This is a LINE mobile sub-device protocol solution that can stay online together with the primary device, uses very little system resource, supports large-scale account hosting, and is suitable for completing migration before the Chrome extension version is discontinued in H1 2026.
+### 包月租用
+
+- `50 USD / 号 / 月`
+- 适合先验证业务、快速上线、按账号规模逐步扩容
+
+### 私有化部署
+
+- `5000 USD`
+- 二进制交付
+- 每次更新 `+500 USD`
+- 适合希望掌握部署环境、数据链路和运行稳定性的客户
+
+### 源码购买
+
+- `10000 USD`
+- 提供完整源码
+- 架构清晰，适合有技术团队自行维护、二次开发和长期运营
+
+### 免费试用
+
+- 提供测试环境
+- 适合先验证注册、迁移、登录、消息、同步等核心能力
+- 测试环境服务器配置较低，稳定性一般，仅建议用于功能验证
+- 联系 Telegram 获取试用地址：[https://t.me/Gareth9527](https://t.me/Gareth9527)
+
+## 一句话介绍
+
+这是一套面向商业化落地的 LINE 移动端协议解决方案，支持账号注册、主设备迁移、主设备/子设备多设备在线、多账号托管、消息同步与业务系统集成，适合在 Chrome 插件版 LINE 下架前提前完成替代方案切换。
