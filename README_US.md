@@ -2,6 +2,8 @@
 
 Language: [中文](./README.md) | English
 
+[Swagger UI](http://188.119.64.251:3000/docs)
+
 ## A Sustainable Alternative Before LINE for Chrome Is Retired
 
 LINE for Chrome is scheduled to be retired in the first half of 2026. For teams that still depend on the Chrome version, web access, browser automation, or PC-based LINE sessions for customer service, private traffic operations, account hosting, and message synchronization, this is the right time to prepare a more sustainable replacement.
