@@ -112,19 +112,19 @@ Compared with maintaining browser sessions, extensions, or automation scripts, a
 
 ### Monthly Rental
 
-- `50 USD / account / month`
+- `5 USD / account / month`
 - Best for quick validation, fast launch, and gradual scaling by account count
 
 ### Private Deployment
 
 - `5000 USD`
 - Binary delivery
-- Each update: `+500 USD`
+- Each update: `+100 USD`
 - Best for customers that want control over deployment, data flow, and operational stability
 
 ### Source Code Purchase
 
-- `10000 USD`
+- `15000 USD`
 - Full source-code delivery
 - Clear architecture, suitable for teams with engineering capability to maintain, customize, and operate long term
 
